@@ -1,6 +1,7 @@
 import Stripe from "stripe";
 import Order from "../models/order.model.js";
 import User from "../models/user.model.js";
+import mongoose from "mongoose";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: "2022-11-15",
@@ -80,3 +81,4 @@ export const confirmPayment = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
