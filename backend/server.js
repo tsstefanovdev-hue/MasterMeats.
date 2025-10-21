@@ -41,9 +41,9 @@ if (process.env.NODE_ENV === "production") {
 
   app.use(express.static(frontendBuildPath));
 
-  app.get("/:path(*)", (req, res) => {
-    res.sendFile(path.resolve(frontendBuildPath, "index.html"));
-  });
+  app.get("/:path(.*)", (req, res) => {
+  res.sendFile(path.resolve(frontendBuildPath, "index.html"));
+});
 }
 
 connectDB()
