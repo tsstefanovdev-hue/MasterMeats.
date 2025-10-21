@@ -47,7 +47,7 @@ const PurchaseSuccessModal = ({ order, onClose }) => {
               <ul className="mt-1 list-disc list-inside">
                 {order.products.map((p) => (
                   <li key={p.product._id}>
-                    {p.quantity}
+                    {p.quantity/1000}
                     {t("cart.kg")} {t("cart.of")} {p.product.title} — €
                     {p.price.toFixed(2)}
                   </li>
@@ -83,3 +83,4 @@ const PurchaseSuccessModal = ({ order, onClose }) => {
 };
 
 export default PurchaseSuccessModal;
+
