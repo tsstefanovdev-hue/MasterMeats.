@@ -49,8 +49,7 @@ const CheckoutForm = ({ onPaymentSuccess, onPaymentCancel }) => {
         clearCart();
 
         // Fetch last completed order from backend
-        const { data: orderData } = await axios.get("/orders/last", { withCredentials: true });
-
+        const { data: orderData } = await axios.get("/orders/last"); // baseURL + path
         onPaymentSuccess?.(orderData.order);
       }
     } catch (err) {
@@ -120,3 +119,4 @@ const CheckoutForm = ({ onPaymentSuccess, onPaymentCancel }) => {
 };
 
 export default CheckoutForm;
+
