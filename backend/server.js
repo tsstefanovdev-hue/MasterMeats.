@@ -1,3 +1,5 @@
+import path from "path";
+import { fileURLToPath } from "url";
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
@@ -10,39 +12,37 @@ import paymentsRoutes from "./routes/payments.routes.js";
 import orderRoutes from "./routes/orders.routes.js";
 
 import { connectDB } from "./lib/db.js";
-import path from "path";
-import { fileURLToPath } from "url";
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/build")));
-
-  // Serve React frontend for all unknown routes
-  app.get("/:path(*)", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
-  });
+if (process.env.NODE_ENV !== "production") {
+  app.use(cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true
+  }));
 }
 
 app.use(express.json({ limit: "10mb" }));
 app.use(cookieParser());
-
 app.use("/api/auth", authRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/payments", paymentsRoutes);
 app.use("/api/orders", orderRoutes);
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/build")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
+  const frontendBuildPath = path.join(__dirname, "../frontend/build");
+
+  app.use(express.static(frontendBuildPath));
+
+  app.get("/:path(*)", (req, res) => {
+    res.sendFile(path.resolve(frontendBuildPath, "index.html"));
   });
 }
 
@@ -53,5 +53,5 @@ connectDB()
     });
   })
   .catch(err => {
-    console.error("Failed to connect to database", err);
+    console.error("Failed to connect to database:", err);
   });
