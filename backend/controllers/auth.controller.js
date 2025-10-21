@@ -50,16 +50,19 @@ export const refreshToken = async (req, res) => {
 };
 
 const setCookies = (res, accessToken, refreshToken) => {
+	const isProd = process.env.NODE_ENV === "production";
+
 	res.cookie("accessToken", accessToken, {
-		httpOnly: true, // prevent XSS attacks, cross site scripting attack
-		secure: process.env.NODE_ENV === "production",
-		sameSite: "strict", // prevents CSRF attack, cross-site request forgery attack
-		maxAge: 30 * 60 * 1000, // 30 minutes
+		httpOnly: true,
+		secure: isProd,          // must be true for HTTPS
+		sameSite: isProd ? "none" : "lax", // allow cross-site in production
+		maxAge: 30 * 60 * 1000,  // 30 minutes
 	});
+
 	res.cookie("refreshToken", refreshToken, {
-		httpOnly: true, // prevent XSS attacks, cross site scripting attack
-		secure: process.env.NODE_ENV === "production",
-		sameSite: "strict", // prevents CSRF attack, cross-site request forgery attack
+		httpOnly: true,
+		secure: isProd,
+		sameSite: isProd ? "none" : "lax",
 		maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
 	});
 };
@@ -140,4 +143,5 @@ export const getProfile = async (req, res) => {
 	} catch (error) {
 		res.status(500).json({ message: "Server error", error: error.message });
 	}
+
 };
