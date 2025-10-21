@@ -18,11 +18,13 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-if (process.env.NODE_ENV !== "production") {
-  app.use(cors({
-    origin: process.env.CLIENT_URL, 
-    credentials: true
-  }));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+  // Serve React frontend for all unknown routes
+  app.get("/:path(*)", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../frontend/build", "index.html"));
+  });
 }
 
 app.use(express.json({ limit: "10mb" }));
