@@ -1,31 +1,33 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaPlusCircle, FaBoxOpen, FaChartBar } from "react-icons/fa";
+import {FaBoxOpen, FaChartBar } from "react-icons/fa";
+import { FiBox } from "react-icons/fi";
 
-/* import CreateProductForm from "../components/CreateProductForm";
-import ProductsList from "../components/ProductsList";
-import AnalyticsTab from "../components/AnalyticsTab";
-import { useProductStore } from "../stores/useProductStore"; */
+import { useTranslation } from "react-i18next";
+
+import ProductTab from "./ProductTab";
+import ReservationsTab from "./ReservationsTab";
+/* import AnalyticsTab from "./AnalyticsTab"; */
+import { useProductStore } from "../stores/useProductStore";
 
 const tabs = [
-  { id: "create", label: "Create Product", icon: <FaPlusCircle /> },
   { id: "products", label: "Products", icon: <FaBoxOpen /> },
+  { id: "reservations", label: "Reservations", icon: <FiBox /> },
   { id: "analytics", label: "Analytics", icon: <FaChartBar /> },
 ];
 
 const AdminPage = () => {
-  const [activeTab, setActiveTab] = useState("create");
-  /* const { fetchAllProducts } = useProductStore();
+  const [activeTab, setActiveTab] = useState("products");
+  const { fetchAllProducts } = useProductStore();
 
   useEffect(() => {
     fetchAllProducts();
-  }, [fetchAllProducts]); */
+  }, [fetchAllProducts]);
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-gradient-to-br from-secondary/80 via-secondary/40 to-secondary/80 p-8">
-      {/* Page Title */}
       <motion.h1
-        className="text-4xl font-bold text-emerald-400 mb-8 text-center"
+        className="text-3xl lg:text-4xl 2xl:text-6xl font-bold text-accent mb-8 text-center"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -33,7 +35,6 @@ const AdminPage = () => {
         Admin Dashboard
       </motion.h1>
 
-      {/* Tabs */}
       <div className="flex gap-4 mb-8 flex-wrap justify-center">
         {tabs.map((tab) => (
           <button
@@ -41,7 +42,7 @@ const AdminPage = () => {
             onClick={() => setActiveTab(tab.id)}
             className={`flex items-center gap-2 px-5 py-2 rounded-xl font-semibold transition-colors ${
               activeTab === tab.id
-                ? "bg-emerald-600 text-white shadow-lg shadow-emerald-400/50"
+                ? "bg-primary/90 text-accent-content shadow-lg shadow-accent-content/50"
                 : "bg-primary/90 text-primary-content hover:bg-primary/80"
             }`}
           >
@@ -53,9 +54,10 @@ const AdminPage = () => {
 
       {/* Content */}
       <div className="w-full max-w-6xl bg-primary/80 border-4 border-accent rounded-2xl p-8 shadow-xl">
-        {/* {activeTab === "create" && <CreateProductForm />}
-        {activeTab === "products" && <ProductsList />}
-        {activeTab === "analytics" && <AnalyticsTab />} */}
+        {activeTab === "products" && <ProductTab />}
+        {activeTab === "reservations" && <ReservationsTab />}
+        {activeTab === "analytics" && <div className="text-secondary">Analytics</div>}
+        {/* <AnalyticsTab /> */}
       </div>
     </div>
   );
