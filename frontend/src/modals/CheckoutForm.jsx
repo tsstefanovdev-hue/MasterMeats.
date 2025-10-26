@@ -51,7 +51,6 @@ const CheckoutForm = ({ onPaymentSuccess, onPaymentCancel }) => {
       if (result.paymentIntent.status === "succeeded") {
         clearCart();
 
-        // 👇 Create the order immediately after payment confirmation
         await axios.post(
           "/payments/confirm-payment",
           { paymentIntentId: result.paymentIntent.id },
