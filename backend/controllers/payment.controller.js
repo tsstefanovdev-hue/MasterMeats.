@@ -1,7 +1,6 @@
 import Stripe from "stripe";
 import Order from "../models/order.model.js";
 import User from "../models/user.model.js";
-import mongoose from "mongoose";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: "2022-11-15",
@@ -92,9 +91,9 @@ export const confirmPayment = async (req, res) => {
 
     // Construct Order document
     const order = new Order({
-      user: new mongoose.Types.ObjectId(userId),
+      user: userId,
       products: products.map((p) => ({
-        product: new mongoose.Types.ObjectId(p.id),
+        product: p.id,
         quantity: Math.max(1, Math.round(p.quantityInGrams)), 
         price: p.pricePerKg,
       })),
