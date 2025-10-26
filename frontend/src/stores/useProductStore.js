@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import toast from "react-hot-toast";
 import axios from "../lib/axios";
+import i18next from "i18next";
 
 export const useProductStore = create((set) => ({
   products: [],
@@ -10,44 +11,68 @@ export const useProductStore = create((set) => ({
   setProducts: (products) => set({ products, loading: false }),
 
   fetchAllProducts: async () => {
-    set({ loading: true });
+    set({ loading: true, error: null });
     try {
       const res = await axios.get("/products");
-      set({ products: res.data.products, loading: false });
+      const backendProducts = res.data.products || res.data;
+
+      const localized = backendProducts.map((p) => ({
+        ...p,
+        title: i18next.t(`products.${p.name}.title`, { defaultValue: p.name }),
+        description: i18next.t(`products.${p.name}.description`, {
+          defaultValue: p.description || "",
+        }),
+        ingredients: i18next.t(`products.${p.name}.ingredients`, {
+          defaultValue: "",
+        }),
+        badge: i18next.t(`products.${p.name}.badge`, { defaultValue: "" }),
+      }));
+
+      set({ products: localized, loading: false });
     } catch (error) {
-      set({ loading: false, error: "Failed to fetch products" });
-      toast.error(error.response?.data?.error || "Failed to fetch products");
+      console.error("Error fetching products:", error);
+      toast.error("Failed to fetch products");
+      set({ loading: false, error: error.message });
     }
   },
-  
+
   createProduct: async (productData) => {
-    set({ loading: true });
+    set({ loading: true, error: null });
     try {
       const res = await axios.post("/products", productData);
+      const newProduct = res.data;
+      toast.success("Product created!");
+
       set((prevState) => ({
-        products: [...prevState.products, res.data],
+        products: [...prevState.products, newProduct],
         loading: false,
       }));
     } catch (error) {
-      set({ loading: false });
-      toast.error(error.response?.data?.error || "Failed to create product");
+      console.error("Error creating product:", error);
+      toast.error(error.response?.data?.message || "Failed to create product");
+      set({ loading: false, error: error.message });
     }
   },
 
   updateProduct: async (productId, updates) => {
-    set({ loading: true });
+    set({ loading: true, error: null });
     try {
-      const res = await axios.put(`/products/${productId}`, updates);
+      const payload = { ...updates };
+      if (!payload.images?.length) delete payload.images;
+
+      const res = await axios.put(`/products/${productId}`, payload);
+      const updatedProduct = res.data;
+
       set((prevState) => ({
-        products: prevState.products.map((p) =>
-          p._id === productId ? res.data : p
-        ),
+        products: prevState.products.map((p) => (p._id === productId ? updatedProduct : p)),
         loading: false,
       }));
+
       toast.success("Product updated!");
     } catch (error) {
-      set({ loading: false });
-      toast.error(error.response?.data?.error || "Failed to update product");
+      console.error("Error updating product:", error);
+      set({ loading: false, error: error.message });
+      toast.error(error.response?.data?.message || "Failed to update product");
     }
   },
 
@@ -55,13 +80,15 @@ export const useProductStore = create((set) => ({
     set({ loading: true });
     try {
       await axios.delete(`/products/${productId}`);
-      set((prevState) => ({
-        products: prevState.products.filter((p) => p._id !== productId),
+      set((prev) => ({
+        products: prev.products.filter((p) => p._id !== productId),
         loading: false,
       }));
+      toast.success("Product deleted!");
     } catch (error) {
-      set({ loading: false });
-      toast.error(error.response?.data?.error || "Failed to delete product");
+      console.error("Error deleting product:", error);
+      toast.error(error.response?.data?.message || "Failed to delete product");
+      set({ loading: false, error: error.message });
     }
   },
 }));
