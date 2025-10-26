@@ -2,10 +2,10 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaShoppingBasket, FaUser, FaTools } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import LanguageSelector from "./LanguageSelector.jsx";
 import MobileMenu from "./MobileMenu.jsx";
-
 import { useUserStore } from "../stores/useUserStore";
 import { useCartStore } from "../stores/useCartStore";
 import { useSmoothScrollNav } from "../hooks/useSmoothScrollNav";
@@ -13,6 +13,8 @@ import { useSmoothScrollNav } from "../hooks/useSmoothScrollNav";
 const Navbar = ({ onLoginClick, onCartClick }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const totalItems = useCartStore((state) => state.cart.length);
   const { user, logout } = useUserStore();
@@ -24,13 +26,14 @@ const Navbar = ({ onLoginClick, onCartClick }) => {
     { href: "#contacts", label: t("navbar.contacts") },
   ];
 
-  const { activeSection, scrollToSection } = useSmoothScrollNav(navLinks, () =>
-    setIsOpen(false)
+  const { activeSection, scrollToSection } = useSmoothScrollNav(
+    navLinks,
+    () => setIsOpen(false)
   );
 
-  const hoverVariants = {
-    hover: { scale: 1.1, y: -2, color: "#FBBF24" },
-  };
+  const hoverVariants = { hover: { scale: 1.1, y: -2, color: "#FBBF24" } };
+
+  const handleLogoClick = () => scrollToSection("#hero");
 
   return (
     <nav
@@ -38,7 +41,11 @@ const Navbar = ({ onLoginClick, onCartClick }) => {
       className="navbar h-24 bg-primary text-primary-content shadow-md sticky top-0 z-50 backdrop-blur-lg opacity-90"
     >
       <div className="w-full lg:w-4/5 mx-auto flex items-center justify-between font-emphasis-heading">
-        <div className="w-28 h-14 lg:w-40 lg:h-28 bg-contain bg-no-repeat bg-center">
+        {/* Logo */}
+        <div
+          onClick={handleLogoClick}
+          className="w-28 h-14 lg:w-40 lg:h-28 bg-contain bg-no-repeat bg-center cursor-pointer"
+        >
           <img
             src="/logo_en.png"
             alt="Logo"
@@ -82,7 +89,6 @@ const Navbar = ({ onLoginClick, onCartClick }) => {
         <div className="flex items-center gap-2 lg:gap-4 mx-4">
           {user ? (
             <>
-              {/* Cart */}
               <button
                 onClick={onCartClick}
                 className="relative btn btn-ghost btn-circle"
@@ -96,20 +102,16 @@ const Navbar = ({ onLoginClick, onCartClick }) => {
                 )}
               </button>
 
-              {/* Admin button, only for admins */}
               {user.role === "admin" && (
                 <button
-                  onClick={() => (window.location.href = "/admin")}
+                  onClick={() => navigate("/admin")}
                   className="btn btn-ghost text-accent hover:text-accent/80 font-bold text-lg lg:text-xl 2xl:text-2xl flex items-center gap-1"
                 >
                   <FaTools /> Admin
                 </button>
               )}
 
-              {/* Username */}
               <span className="hidden md:inline font-medium">{user.name}</span>
-
-              {/* Logout */}
               <button
                 onClick={logout}
                 className="text-accent hover:text-accent/80 font-bold text-lg lg:text-xl 2xl:text-2xl"
@@ -129,7 +131,6 @@ const Navbar = ({ onLoginClick, onCartClick }) => {
             </button>
           )}
 
-          {/* Language Selector */}
           <LanguageSelector />
 
           {/* Mobile Menu Toggle */}
@@ -143,7 +144,6 @@ const Navbar = ({ onLoginClick, onCartClick }) => {
         </div>
       </div>
 
-      {/* Portal-based Mobile Menu */}
       <MobileMenu
         isOpen={isOpen}
         navLinks={navLinks}
