@@ -6,7 +6,7 @@ import { FiBox } from "react-icons/fi";
 import { useTranslation } from "react-i18next";
 
 import ProductTab from "./ProductTab";
-import ReservationsTab from "./ReservationsTab";
+/* import ReservationsTab from "./ReservationsTab"; */
 /* import AnalyticsTab from "./AnalyticsTab"; */
 import { useProductStore } from "../stores/useProductStore";
 
@@ -55,7 +55,7 @@ const AdminPage = () => {
       {/* Content */}
       <div className="w-full max-w-6xl bg-primary/80 border-4 border-accent rounded-2xl p-8 shadow-xl">
         {activeTab === "products" && <ProductTab />}
-        {activeTab === "reservations" && <ReservationsTab />}
+        {activeTab === "reservations" && <div className="text-secondary">Reservations</div>}
         {activeTab === "analytics" && <div className="text-secondary">Analytics</div>}
         {/* <AnalyticsTab /> */}
       </div>
@@ -64,3 +64,4 @@ const AdminPage = () => {
 };
 
 export default AdminPage;
+
