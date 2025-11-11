@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import axios from "axios";
+import axios from "../../lib/axios.js";
 import { toast } from "react-hot-toast";
 
 export const useReservationStore = create((set, get) => ({
@@ -163,4 +163,5 @@ const getReservationStatus = (reservation) => {
   if (!reservation.completed && reservation.amountDue === 0) return "paidNotDelivered";
   if (!reservation.completed && reservation.amountDue > 0 && !reservation.delivered) return "reserved";
   return "pending";
+
 };
