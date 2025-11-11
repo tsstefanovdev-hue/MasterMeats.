@@ -1,0 +1,50 @@
+{
+    "tabs": {
+        "irl": "IRL Reservations",
+        "online": "Online Reservations"
+    },
+    "filters": {
+        "title": "Filters",
+        "quick": {
+            "title": "Quick Filters",
+            "filters": {
+                "showCurrent": "Show Current",
+                "reserved": "Reserved",
+                "deliveredNotPaid": "Delivered (Not Paid)",
+                "paidNotDelivered": "Paid (Not Delivered)",
+                "showCompleted": "Show Completed",
+                "showAll": "Show All"
+            }
+        },
+        "productFilter": {
+            "title": "Product Filter",
+            "placeholder": "Search by product name",
+            "empty": "No products filter added."
+        }
+    },
+    "list": {
+        "name": "Client Name",
+        "phone": "Phone:",
+        "items": "Items",
+        "total": "Total (€)",
+        "amountDue": "Due (€)",
+        "dateOfDelivery": "Delivery Date",
+        "status": "Status",
+        "actions": "Actions"
+    },
+    "details": {
+        "title": "Reservation Details",
+        "reservationDate": "Reservation Date",
+        "deliveryDate": "Date of Delivery",
+        "totalAmount": "Total Amount (€)",
+        "itemList": "Items in Reservation",
+        "notes": "Notes",
+        "noNotes": "No notes provided.",
+        "noProducts": "No products found."
+    },
+    "editTitle": "Edit Reservation",
+    "createTitle": "Create New Reservation",
+    "back": "Back to Reservations",
+    "title": "Reserved Items",
+    "empty": "No reserved items found."
+}

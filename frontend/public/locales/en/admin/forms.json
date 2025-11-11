@@ -1,0 +1,74 @@
+{
+    "client": {
+        "title": "Client Information",
+        "nameLabel": "Full Name",
+        "namePlaceholder": "John Doe",
+        "phoneLabel": "Phone",
+        "phonePlaceholder": "+359888888888",
+        "emailLabel": "Email(optional)",
+        "emailPlaceholder": "example@example.com",
+        "notesLabel": "Notes(optional)",
+        "notesPlaceholder": "Additional notes...",
+        "tagsLabel": "Tags",
+        "noTags": "No tags added yet",
+        "tagsPlaceholder": "Add tags..."
+    },
+    "delivery": {
+        "title": "Delivery Details",
+        "dateOfDelivery": "Date of Delivery",
+        "delivered": "Mark as Delivered",
+        "total": "Total Amount",
+        "amountDue": "Amount Due",
+        "notesLabel": "Notes(optional)",
+        "notesPlaceholder": "Additional notes..."
+    },
+    "reservationItem": {
+        "title": "Products in Reservation",
+        "empty": "No products added yet",
+        "price": "Price",
+        "quantity": "Quantity",
+        "total": "Total"
+    },
+    "product": {
+        "title": "Product Info",
+        "nameLabel": "Product name (internal key)",
+        "namePlaceholder": "example_example",
+        "priceLabel": "Price per kg in Euro",
+        "pricePlaceholder": "0.00",
+        "categoryLabel": "Product Category",
+        "categoryDropdown": {
+            "title": "Select Category",
+            "categories": {
+                "fillet": "Fillet",
+                "neck": "Neck",
+                "ham": "Ham"
+            }
+        },
+        "stock": "Stock in grams(optional)",
+        "subtitle": "Localization Info",
+        "langs": {
+            "bg": {
+                "title": "Bulgarian (BG)",
+                "titleLabel": "Заглавие",
+                "titlePlaceholder": "Месо",
+                "ingredientsLabel": "Съставки (по желание)",
+                "ingredientsPlaceholder": "Сол, месо, подправки...",
+                "descriptionLabel": "Описание",
+                "descriptionPlaceholder": "Описание...",
+                "badgeLabel": "Етикет (по желание)",
+                "badgePlaceholder": "Нов"
+            },
+            "en": {
+                "title": "English (EN)",
+                "titleLabel": "Title",
+                "titlePlaceholder": "Meat",
+                "ingredientsLabel": "Ingredients(optional)",
+                "ingredientsPlaceholder": "Salt, meat, spices...",
+                "descriptionLabel": "Description",
+                "descriptionPlaceholder": "Description...",
+                "badgeLabel": "Badge(optional)",
+                "badgePlaceholder": "New"
+            }
+        }
+    }
+}

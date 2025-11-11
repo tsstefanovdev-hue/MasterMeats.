@@ -1,0 +1,56 @@
+{
+    "title": "Admin Dashboard",
+    "buttons": {
+        "createProduct": "Create Product",
+        "updateProduct": "Update Product",
+        "deleteProduct": "Delete Product",
+        "updateClient": "Update Client",
+        "createClient": "Create Client",
+        "deleteClient": "Delete Client",
+        "updateReservation": "Update Reservation",
+        "createReservation": "Create Reservation",
+        "deleteReservation": "Delete Reservation",
+        "showDetails": "Show Details",
+        "hideDetails": "Hide Details",
+        "markAsCompleted": "Mark as Completed"
+    },
+    "units": {
+        "grams": "g",
+        "kg": "kg",
+        "of": "of"
+    },
+    "loading": {
+        "loading": "Loading...",
+        "updating": "Updating...",
+        "creating": "Creating...",
+        "deleting": "Deleting...",
+        "uploading": "Uploading..."
+    },
+    "tabs": {
+        "products": "Products",
+        "reservations": "Reservations",
+        "analytics": "Analytics",
+        "usersAndClients": "Users & Clients"
+    },
+    "status": {
+        "status": "Status",
+        "pending": "Pending",
+        "completed": "Completed",
+        "cancelled": "Cancelled",
+        "inProcess": "In Process",
+        "reserved": "Reserved",
+        "none": "None",
+        "deliveredNotPaid": "Delivered (Not Paid)",
+        "paidNotDelivered": "Paid (Not Delivered)"
+    },
+    "notFound": {
+        "products": "No products found.",
+        "reservations": "No reservations found.",
+        "clients": "No clients found.",
+        "items": "No items found."
+    },
+    "searchClient": {
+        "title": "Search by client name or phone",
+        "placeholder": "e.g. John Doe, +359888888888"
+    }
+}

@@ -1,0 +1,34 @@
+{
+  "tabs": {
+    "users": "Users",
+    "clients": "Clients"
+  },
+  "filters": {
+        "title": "Filters",
+        "statusTitle": "Status Filters",
+        "tagsFilter": {
+            "title": "Client tag filter",
+            "placeholder": "Search for tags",
+            "empty": "No client tags added."
+        }
+    },
+  "list": {
+    "name": "Client Name",
+    "phone": "Phone:",
+    "items": "Last Reserved Items",
+    "total": "Total # of Reservations",
+    "status": "Last Reservation Status",
+    "actions": "Actions"
+  },
+  "editTitle": "Edit Client",
+  "createTitle": "Create New Client",
+  "back": "Back to Clients",
+  "title": "Clients",
+  "empty": "No clients found.",
+  "details": {
+    "title": "Reservations",
+    "items": "Reserved Items",
+    "notes": "Notes",
+    "noNotes": "No notes provided."
+  }
+}

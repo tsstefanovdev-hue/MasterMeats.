@@ -1,0 +1,56 @@
+{
+    "title": "Административен панел",
+    "buttons": {
+        "createProduct": "Създай продукт",
+        "updateProduct": "Обнови продукта",
+        "deleteProduct": "Изтрий продукта",
+        "updateClient": "Обнови клиента",
+        "createClient": "Създай клиент",
+        "deleteClient": "Изтрий клиента",
+        "updateReservation": "Обнови резервацията",
+        "createReservation": "Създай резервация",
+        "deleteReservation": "Изтрий резервация",
+        "showDetails": "Покажи детайли",
+        "hideDetails": "Скрий детайли",
+        "markAsCompleted":"Отбележи като завършена"
+    },
+    "units": {
+        "grams": "гр.",
+        "kg": "кг.",
+        "of": "от"
+    },
+    "loading": {
+        "loading": "Зареждане...",
+        "updating": "Обновяване...",
+        "creating": "Създаване...",
+        "deleting": "Изтриване...",
+        "uploading": "Качване..."
+    },
+    "tabs": {
+        "products": "Продукти",
+        "reservations": "Резервации",
+        "analytics": "Анализи",
+        "usersAndClients": "Потребители & Клиенти"
+    },
+    "status": {
+        "status": "Статус",
+        "pending": "Чакаща",
+        "completed": "Завършена",
+        "cancelled": "Отказана",
+        "inProcess": "В процес",
+        "reserved": "Резервирана",
+        "none": "Няма",
+        "deliveredNotPaid": "Доставена (Неплатена)",
+        "paidNotDelivered": "Платена (Недоставена)"
+    },
+    "notFound": {
+        "products": "Няма намерени продукти.",
+        "reservations": "Няма намерени резервации.",
+        "clients": "Няма намерени клиенти.",
+        "items": "Няма намерени продукти."
+    },
+    "searchClient": {
+        "title": "Търсене по име на клиент или телефон",
+        "placeholder": "напр. Иван Иванов, +359888888888"
+    }
+}

@@ -1,0 +1,74 @@
+{
+    "client": {
+        "title": "Информация за клиента",
+        "nameLabel": "Пълно име",
+        "namePlaceholder": "Иван Иванов",
+        "phoneLabel": "Телефон",
+        "phonePlaceholder": "+359888888888",
+        "emailLabel": "Имейл (по желание)",
+        "emailPlaceholder": "primer@primer.com",
+        "notesLabel": "Бележки (по желание)",
+        "notesPlaceholder": "Допълнителни забележки...",
+        "tagsLabel": "Тагове",
+        "noTags": "Няма добавени тагове",
+        "tagsPlaceholder": "Добавете тагове..."
+    },
+    "delivery": {
+        "title": "Детайли за доставка",
+        "dateOfDelivery": "Дата на доставка",
+        "delivered": "Маркирай като доставена",
+        "total": "Обща сума",
+        "amountDue": "Дължима сума",
+        "notesLabel": "Бележки (по желание)",
+        "notesPlaceholder": "Допълнителни бележки..."
+    },
+    "reservationItem": {
+        "title": "Продукти в резервацията",
+        "empty": "Няма добавени продукти",
+        "price": "Цена",
+        "quantity": "Количество",
+        "total": "Общо"
+    },
+    "product": {
+        "title": "Информация за продукта",
+        "nameLabel": "Име на продукта (вътрешен ключ)",
+        "namePlaceholder": "primeren_produkt",
+        "priceLabel": "Цена за кг в евро",
+        "pricePlaceholder": "0.00",
+        "categoryLabel": "Категория на продукта",
+        "categoryDropdown": {
+            "title": "Изберете категория",
+            "categories": {
+                "fillet": "Филе",
+                "neck": "Врат",
+                "ham": "Бут"
+            }
+        },
+        "stock": "Наличност в грамове (по желание)",
+        "subtitle": "Информация за превод",
+        "langs": {
+            "bg": {
+                "title": "Български (BG)",
+                "titleLabel": "Заглавие",
+                "titlePlaceholder": "Месо",
+                "ingredientsLabel": "Съставки (по желание)",
+                "ingredientsPlaceholder": "Сол, месо, подправки...",
+                "descriptionLabel": "Описание",
+                "descriptionPlaceholder": "Описание...",
+                "badgeLabel": "Етикет (по желание)",
+                "badgePlaceholder": "Нов"
+            },
+            "en": {
+                "title": "Английски (EN)",
+                "titleLabel": "Title",
+                "titlePlaceholder": "Meat",
+                "ingredientsLabel": "Ingredients(optional)",
+                "ingredientsPlaceholder": "Salt, meat, spices...",
+                "descriptionLabel": "Description",
+                "descriptionPlaceholder": "Description...",
+                "badgeLabel": "Badge(optional)",
+                "badgePlaceholder": "New"
+            }
+        }
+    }
+}
