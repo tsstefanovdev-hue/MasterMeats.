@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import axios from "axios";
+import axios from "../../lib/axios.js";
 import { toast } from "react-hot-toast";
 
 export const useClientStore = create((set, get) => ({
@@ -139,3 +139,4 @@ export const useClientStore = create((set, get) => ({
 
   setSelectedClient: (client) => set({ selectedClient: client }),
 }));
+
