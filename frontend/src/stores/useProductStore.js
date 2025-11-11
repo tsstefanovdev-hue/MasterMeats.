@@ -13,7 +13,7 @@ export const useProductStore = create((set) => ({
   fetchAllProducts: async () => {
     set({ loading: true, error: null });
     try {
-      const res = await axios.get("/products");
+      const res = await axios.get("/api/products");
       const backendProducts = res.data.products || res.data;
 
       const localized = backendProducts.map((p) => ({
@@ -45,7 +45,7 @@ export const useProductStore = create((set) => ({
   createProduct: async (productData) => {
     set({ loading: true, error: null });
     try {
-      const res = await axios.post("/products", productData);
+      const res = await axios.post("/api/products", productData);
       const newProduct = res.data;
       toast.success("Product created!");
 
@@ -66,7 +66,7 @@ export const useProductStore = create((set) => ({
       const payload = { ...updates };
       if (!payload.images?.length) delete payload.images;
 
-      const res = await axios.put(`/products/${productId}`, payload);
+      const res = await axios.put(`/api/products/${productId}`, payload);
       const updatedProduct = res.data;
 
       set((prevState) => ({
@@ -85,7 +85,7 @@ export const useProductStore = create((set) => ({
   deleteProduct: async (productId) => {
     set({ loading: true });
     try {
-      await axios.delete(`/products/${productId}`);
+      await axios.delete(`/api/products/${productId}`);
       set((prev) => ({
         products: prev.products.filter((p) => p._id !== productId),
         loading: false,
@@ -98,3 +98,4 @@ export const useProductStore = create((set) => ({
     }
   },
 }));
+
