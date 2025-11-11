@@ -35,7 +35,7 @@ export const useReservationStore = create((set, get) => ({
       if (filters.statusFilter)
         params.append("statusFilter", filters.statusFilter);
 
-      const res = await axios.get(`/api/reservations?${params.toString()}`);
+      const res = await axios.get(`/reservations?${params.toString()}`);
 
       set({
         reservations: res.data.reservations,
@@ -55,7 +55,7 @@ export const useReservationStore = create((set, get) => ({
   createReservation: async (reservationData) => {
     set({ loading: true, error: null });
     try {
-      const res = await axios.post(`/api/reservations`, reservationData);
+      const res = await axios.post(`/reservations`, reservationData);
       toast.success("Reservation created successfully!");
       await get().fetchFilteredReservations();
       return res.data;
@@ -70,10 +70,7 @@ export const useReservationStore = create((set, get) => ({
   updateReservation: async (reservationId, updates) => {
     set({ loading: true, error: null });
     try {
-      const res = await axios.put(
-        `/api/reservations/${reservationId}`,
-        updates
-      );
+      const res = await axios.put( `/reservations/${reservationId}`, updates);
       set((state) => ({
         reservations: state.reservations.map((r) =>
           r._id === reservationId ? res.data : r
@@ -93,7 +90,7 @@ export const useReservationStore = create((set, get) => ({
   deleteReservation: async (reservationId) => {
     set({ loading: true, error: null });
     try {
-      await axios.delete(`/api/reservations/${reservationId}`);
+      await axios.delete(`/reservations/${reservationId}`);
       set((state) => ({
         reservations: state.reservations.filter((r) => r._id !== reservationId),
         loading: false,
@@ -165,3 +162,4 @@ const getReservationStatus = (reservation) => {
   return "pending";
 
 };
+
