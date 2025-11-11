@@ -34,7 +34,7 @@ export const useClientStore = create((set, get) => ({
       if (filters.hideCompletedOnly) queryObj.hideCompletedOnly = true;
 
       const query = new URLSearchParams(queryObj).toString();
-      const res = await axios.get(`/api/clients?${query}`);
+      const res = await axios.get(`/clients?${query}`);
 
       const { clients, totalCount, totalPages, currentPage, availableTags } =
         res.data;
@@ -58,7 +58,7 @@ export const useClientStore = create((set, get) => ({
   createClient: async (clientData) => {
     set({ loading: true, error: null });
     try {
-      const res = await axios.post(`/api/clients`, clientData);
+      const res = await axios.post(`/clients`, clientData);
       set((state) => ({
         clients: [res.data, ...state.clients],
         loading: false,
@@ -80,7 +80,7 @@ export const useClientStore = create((set, get) => ({
   updateClient: async (id, updates) => {
     set({ loading: true, error: null });
     try {
-      const res = await axios.put(`/api/clients/${id}`, updates);
+      const res = await axios.put(`/clients/${id}`, updates);
       set((state) => ({
         clients: state.clients.map((c) => (c._id === id ? res.data : c)),
         loading: false,
@@ -101,7 +101,7 @@ export const useClientStore = create((set, get) => ({
   deleteClient: async (clientId) => {
     set({ loading: true, error: null });
     try {
-      await axios.delete(`/api/clients/${clientId}`);
+      await axios.delete(`/clients/${clientId}`);
       set((state) => {
         const remainingClients = state.clients.filter(
           (c) => c._id !== clientId
@@ -139,4 +139,5 @@ export const useClientStore = create((set, get) => ({
 
   setSelectedClient: (client) => set({ selectedClient: client }),
 }));
+
 
