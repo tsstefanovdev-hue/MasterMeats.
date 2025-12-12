@@ -13,7 +13,7 @@ export const useProductStore = create((set) => ({
   fetchPublicProducts: async () => {
     set({ loading: true, error: null });
     try {
-      const res = await axios.get("/products"); // only active
+      const res = await axios.get("api/products"); // only active
       const backendProducts = res.data.products || res.data;
 
       const localized = backendProducts.map((p) => ({
@@ -46,7 +46,7 @@ export const useProductStore = create((set) => ({
   fetchAdminProducts: async () => {
     set({ loading: true, error: null });
     try {
-      const res = await axios.get("/products?showAll=true"); // all products
+      const res = await axios.get("api/products?showAll=true"); // all products
       const backendProducts = res.data.products || res.data;
 
       const localized = backendProducts.map((p) => ({
@@ -78,7 +78,7 @@ export const useProductStore = create((set) => ({
   createProduct: async (productData) => {
     set({ loading: true, error: null });
     try {
-      const res = await axios.post("/products", productData);
+      const res = await axios.post("api/products", productData);
       const newProduct = res.data;
       toast.success("Product created!");
 
@@ -118,7 +118,7 @@ export const useProductStore = create((set) => ({
   deleteProduct: async (productId) => {
     set({ loading: true });
     try {
-      await axios.delete(`/products/${productId}`);
+      await axios.delete(`api/products/${productId}`);
       set((prev) => ({
         products: prev.products.filter((p) => p._id !== productId),
         loading: false,
@@ -134,9 +134,9 @@ export const useProductStore = create((set) => ({
   toggleProductActive: async (productId, isActive) => {
   try {
     if (isActive) {
-      await axios.patch(`/products/${productId}/enable`);
+      await axios.patch(`api/products/${productId}/enable`);
     } else {
-      await axios.patch(`/products/${productId}/disable`);
+      await axios.patch(`api/products/${productId}/disable`);
     }
     toast.success(`Product ${isActive ? "enabled" : "disabled"}!`);
   } catch (err) {
@@ -146,3 +146,4 @@ export const useProductStore = create((set) => ({
 }
 
 }));
+
