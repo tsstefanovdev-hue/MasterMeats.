@@ -35,7 +35,7 @@
   "elena_fillet_mix_spicy": {
     "title": "Elena Fillet Mix Spicy",
     "description": "An aroma and taste that unfolds with every bite – a flavor for true connoisseurs. A pinch of black pepper to tease the senses and a pinch of spicy red pepper to light it ablaze. Dried for at least 15 days.",
-    "ingredients": "Pork loin, sweet red pepper, spicy red pepper black pepper, savory, and fenugreek",
+    "ingredients": "Pork loin, sweet red pepper, spicy red pepper, chili flakes, black pepper, savory, and fenugreek",
     "badge": "Spicy"
   },
   "test": {
@@ -45,21 +45,21 @@
     "badge": "ete"
   },
   "elena_fillet_mix_paprika": {
-    "title": "elena_fillet_mix_paprika",
-    "description": "temp",
-    "ingredients": "",
+    "title": "Elena Fillet Mix Paprika",
+    "description": "To be added",
+    "ingredients": "Pork loin, paprika, black pepper, savory, and fenugreek",
     "badge": ""
   },
   "paprika": {
-    "title": "paprika",
-    "description": "temp",
-    "ingredients": "",
+    "title": "Paprika pastarma",
+    "description": "To be added",
+    "ingredients": "Pork loin and paprika",
     "badge": ""
   },
   "red_pepper_samardala": {
-    "title": "red_pepper_samardala",
-    "description": "temp",
-    "ingredients": "",
+    "title": "Samardala Pastarma",
+    "description": "To be added",
+    "ingredients": "Свинско контрафиле, сладък червен пипер, самардала",
     "badge": ""
   }
 }
