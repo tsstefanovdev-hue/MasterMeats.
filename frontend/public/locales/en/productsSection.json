@@ -2,12 +2,6 @@
   "title": "Our Selection, Crafted Especially for You!",
   "btnBuy": "Add to Cart",
   "kg": "kg",
-  "elena_fillet_mix": {
-    "title": "Elena Fillet Mix",
-    "description": "An aroma and taste that unfolds with every bite – a flavor for true connoisseurs. A pinch of black pepper to tease the senses. Tender fillet that melts in your mouth. Dried for at least 15 days.",
-    "ingredients": "Pork loin, sweet red pepper, black pepper, savory, and fenugreek",
-    "badge": "New"
-  },
   "elena_fillet_clasic": {
     "title": "Elena Fillet",
     "description": "A classic to the table. Fresh Bulgarian meat – pure loin, delicately seasoned only with savory, fenugreek, and time. A taste up to standard. Dried for at least 15 days.",
@@ -19,6 +13,12 @@
     "description": "True Bulgarian pride – aromatic pastarma with a rich red pepper flavor, cured with craftsmanship and respect for tradition. A pleasure in every bite. Dried for at least 15 days.",
     "ingredients": "Pork loin and sweet red pepper",
     "badge": ""
+  },
+  "elena_fillet_mix": {
+    "title": "Elena Fillet Mix",
+    "description": "An aroma and taste that unfolds with every bite – a flavor for true connoisseurs. A pinch of black pepper to tease the senses. Tender fillet that melts in your mouth. Dried for at least 15 days.",
+    "ingredients": "Pork loin, sweet red pepper, black pepper, savory, and fenugreek",
+    "badge": "New"
   },
   "pastarma_smoked": {
     "title": "Pastarma Smoked",
@@ -37,5 +37,29 @@
     "description": "An aroma and taste that unfolds with every bite – a flavor for true connoisseurs. A pinch of black pepper to tease the senses and a pinch of spicy red pepper to light it ablaze. Dried for at least 15 days.",
     "ingredients": "Pork loin, sweet red pepper, spicy red pepper black pepper, savory, and fenugreek",
     "badge": "Spicy"
+  },
+  "test": {
+    "title": "test",
+    "description": "tetet",
+    "ingredients": "tete",
+    "badge": "ete"
+  },
+  "elena_fillet_mix_paprika": {
+    "title": "elena_fillet_mix_paprika",
+    "description": "temp",
+    "ingredients": "",
+    "badge": ""
+  },
+  "paprika": {
+    "title": "paprika",
+    "description": "temp",
+    "ingredients": "",
+    "badge": ""
+  },
+  "red_pepper_samardala": {
+    "title": "red_pepper_samardala",
+    "description": "temp",
+    "ingredients": "",
+    "badge": ""
   }
 }
