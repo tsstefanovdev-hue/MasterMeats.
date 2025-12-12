@@ -22,7 +22,7 @@ export const useCartStore = create((set, get) => ({
   getCartItems: async () => {
     if (!get()._requireAuth()) return;
     try {
-      const res = await axios.get("/api/cart");
+      const res = await axios.get("/cart");
       const normalizedCart = res.data.map((item) => ({
         ...item,
         images: item.images?.map((img) =>
@@ -52,7 +52,7 @@ export const useCartStore = create((set, get) => ({
     if (!get()._requireAuth()) return;
 
     try {
-      await axios.delete("/api/cart");
+      await axios.delete("/cart");
       set({ cart: [], coupon: null, total: 0, subtotal: 0 });
       toast.success("Cart cleared");
     } catch (error) {
@@ -69,7 +69,7 @@ export const useCartStore = create((set, get) => ({
     }
 
     try {
-      await axios.post("/api/cart", { productId: product._id, quantityInGrams });
+      await axios.post("/cart", { productId: product._id, quantityInGrams });
       const normalizedImages = product.images?.map((img) =>
         typeof img === "string" ? img : img.url
       );
@@ -111,7 +111,7 @@ export const useCartStore = create((set, get) => ({
     if (!get()._requireAuth()) return;
 
     try {
-      await axios.delete("/api/cart", { data: { productId } });
+      await axios.delete("/cart", { data: { productId } });
       set((prev) => ({
         cart: prev.cart.filter((item) => item._id !== productId),
       }));
@@ -131,7 +131,7 @@ export const useCartStore = create((set, get) => ({
     }
 
     try {
-      await axios.put(`/api/cart/${productId}`, { quantityInGrams });
+      await axios.put(`/cart/${productId}`, { quantityInGrams });
       set((prev) => ({
         cart: prev.cart.map((item) =>
           item._id === productId ? { ...item, quantityInGrams } : item
@@ -159,4 +159,3 @@ export const useCartStore = create((set, get) => ({
 }));
 
 export default useCartStore;
-
