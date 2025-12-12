@@ -26,9 +26,8 @@ const Navbar = ({ onLoginClick, onCartClick }) => {
     { href: "#contacts", label: t("nav.contacts") },
   ];
 
-  const { activeSection, scrollToSection } = useSmoothScrollNav(
-    navLinks,
-    () => setIsOpen(false)
+  const { activeSection, scrollToSection } = useSmoothScrollNav(navLinks, () =>
+    setIsOpen(false)
   );
 
   const hoverVariants = { hover: { scale: 1.1, y: -2, color: "#FBBF24" } };
@@ -89,25 +88,28 @@ const Navbar = ({ onLoginClick, onCartClick }) => {
         <div className="flex items-center gap-2 lg:gap-4 mx-4">
           {user ? (
             <>
-              <button
-                onClick={onCartClick}
-                className="relative btn btn-ghost btn-circle"
-                aria-label="Shopping Basket"
-              >
-                <FaShoppingBasket className="w-6 h-6" />
-                {totalItems > 0 && (
-                  <span className="absolute -top-2 -right-2 rounded-full bg-secondary text-primary text-xs w-5 h-5 flex items-center justify-center font-bold">
-                    {totalItems}
-                  </span>
-                )}
-              </button>
+              {user.role != "admin" && (
+                <button
+                  onClick={onCartClick}
+                  className="relative btn btn-ghost btn-circle"
+                  aria-label="Shopping Basket"
+                  title={t("nav.cart")}
+                >
+                  <FaShoppingBasket className="w-6 h-6" />
+                  {totalItems > 0 && (
+                    <span className="absolute -top-2 -right-2 rounded-full bg-secondary text-primary text-xs w-5 h-5 flex items-center justify-center font-bold">
+                      {totalItems}
+                    </span>
+                  )}
+                </button>
+              )}
 
               {user.role === "admin" && (
                 <button
                   onClick={() => navigate("/admin")}
                   className="btn btn-ghost text-accent hover:text-accent/80 font-bold text-lg lg:text-xl 2xl:text-2xl flex items-center gap-1"
                 >
-                  <FaTools /> Admin
+                  <FaTools /> {t("nav.admin")}
                 </button>
               )}
 
