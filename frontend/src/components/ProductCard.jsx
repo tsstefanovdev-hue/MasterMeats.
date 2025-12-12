@@ -91,11 +91,11 @@ const ProductCard = ({ product, reverse = false }) => {
             {description}
           </p>
 
-          <p className="text-right w-full 2xl:w-1/2 text-sm lg:text-base leading-relaxed mb-6 lg:mb-3 mx-3 lg:mx-8 self-center lg:self-end">
+          <p className="text-right w-full 2xl:w-[70%] text-sm lg:text-base leading-relaxed mb-6 lg:mb-3 mx-3 lg:mx-8 self-center lg:self-end">
             {ingredients}
           </p>
 
-          <div className="flex items-center justify-between lg:justify-end gap-2 lg:gap-4 mx-2 2xl:mx-8">
+          <div className="flex items-center justify-between lg:justify-end gap-2 lg:gap-4 mx-2">
             <span className="text-2xl lg:text-3xl font-bold">
               €{product.pricePerKg}
             </span>
