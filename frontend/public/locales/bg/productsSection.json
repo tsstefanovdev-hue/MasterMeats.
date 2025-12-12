@@ -35,7 +35,7 @@
   "elena_fillet_mix_spicy": {
     "title": "Филе Елена Микс Лют",
     "description": "Аромат и вкус, който се разгръща с всяка хапка – вкус за истински ценители. Щипка черен пипер, да погали сетивата и щипка лют червен пипер за до ги подпали. Сушено минимум 15 дни.",
-    "ingredients": "Свинско контрафиле, сладък червен пипер, лют червен пипер, черен пипер, чубрица и сминдух",
+    "ingredients": "Свинско контрафиле, сладък червен пипер, лют червен пипер, чили люспи, черен пипер, чубрица и сминдух",
     "badge": "Люто"
   },
   "test": {
@@ -45,21 +45,21 @@
     "badge": "tetet"
   },
   "elena_fillet_mix_paprika": {
-    "title": "elena_fillet_mix_paprika",
-    "description": "",
-    "ingredients": "",
+    "title": "Филе Елена Микс Паприка",
+    "description": "Текстът предстои да бъде добавен",
+    "ingredients": "Св. контрафиле, паприка, чер. пипер, чубрица и сминдух",
     "badge": ""
   },
   "paprika": {
-    "title": "paprika",
-    "description": "",
-    "ingredients": "",
+    "title": "Пастарма с паприка",
+    "description": "Текстът предстои да бъде добавен",
+    "ingredients": "Свинско контрафиле и паприка",
     "badge": ""
   },
   "red_pepper_samardala": {
-    "title": "red_pepper_samardala",
-    "description": "",
-    "ingredients": "",
+    "title": "Пастърма с самардала",
+    "description": "Текстът предстои да бъде добавен",
+    "ingredients": "Pork loin, sweet red pepper, samardala",
     "badge": ""
   }
 }
